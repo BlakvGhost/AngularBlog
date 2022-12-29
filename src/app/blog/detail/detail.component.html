@@ -1,0 +1,32 @@
+<div>
+    <div class="my-3">
+        <h5 class="my-3 italic">
+            <span class="text-primary">/</span>
+            <span class="text-warning">/</span>
+            <span class="text-danger">/</span>
+            BLOG/ {{ post?.category.name }} / {{ post?.title }}
+        </h5>
+        <form method="POST" class="w-50 py-2">                    
+            <div class="form-group my-2 position-relative" style="z-index:4">
+                <label for="q" class="form-text d-none">Rechercher : </label>
+                <input type="text" name="q" id="q" 
+                 placeholder="Entrer un mot clé pour rechercher" class="form-control"
+                 autocomplete="off">
+            </div>            
+        </form>
+    </div>
+    <div>
+        <div class="text-end">
+            <span>Publier par: </span>
+            <span class="fw-bolder"> {{ post?.user.first_name + ' ' + post?.user.last_name }} </span>
+            <span> {{ post?.created_at }} </span>
+        </div>
+        <div class="py-3">
+            <h4> {{ post?.title }} </h4>
+        </div>
+        <div class="p-2" [innerHTML]="post?.content | sanitize"></div>
+        <div class="w-100 my-3">
+            <img *ngIf="post" [src]="storage + post?.cover" [alt]="post?.title" class="full rounded">
+        </div>
+    </div>    
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-8 m-auto">
+      <h5 class="my-3 italic">
+        <span class="text-primary">/</span>
+        <span class="text-warning">/</span>
+        <span class="text-danger">/</span>
+        BLOG/Publier
+      </h5>
+      <form (submit)="submit($event)" #form="ngForm" id="form" action="/" method="POST" enctype="multipart/form-data">
+        <app-alert [success]="success" [data]="message"></app-alert>
+        <div class="form-group my-2">
+          <label for="title" class="form-text">Titre* : </label>
+          <input type="text" name="title" id="title" class="form-control form-control-lg"
+            placeholder="Enter Your Article Title"
+            required [(ngModel)]="data.title">
+        </div>
+        <div class="form-group my-2">
+          <label for="title2" class="form-text">Categorie *</label>
+          <select name="category_id" id="title2" class="form-select" required [(ngModel)]="data.category_id">
+            <option *ngFor="let cat of categories" [value]="cat.id">
+              {{ cat.name }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group my-2">
+          <label for="cover" class="form-text">Image de Couverture *</label>
+          <input type="file" name="screen" id="cover" class="form-control form-control-lg" required>
+        </div>
+        <div class="form-group my-2">
+          <label for="content" class="form-text">Contenu* : </label>
+          <textarea name="content" id="content"
+          cols="30" rows="10" class="form-control" required [(ngModel)]="data.content">
+          </textarea>
+        </div>
+        <div class="my-3 text-center">
+          <button class="btn btn-success w-50" type="submit">Publier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

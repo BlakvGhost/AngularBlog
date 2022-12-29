@@ -1,0 +1,48 @@
+<div>
+    <div class="my-3">
+        <h5 class="my-3 italic">
+            <span class="text-primary">/</span>
+            <span class="text-warning">/</span>
+            <span class="text-danger">/</span>
+            BLOG
+        </h5>
+        <form method="POST" class="w-50 py-2">                    
+            <div class="form-group my-2 position-relative" style="z-index:5">
+                <label for="q" class="form-text d-none">Rechercher : </label>
+                <input type="text" name="q" id="q" 
+                 placeholder="Entrer un mot clé pour rechercher" class="form-control"
+                 autocomplete="off">
+            </div>            
+        </form>
+    </div>
+    <div>
+        <h6 class="italic my-3">Tout les articles</h6>
+        <div class="container-fluid">
+            <div class="row row-cols-3">
+                <article class="col my-3 visible" style="height:200px;" *ngFor="let post of posts">
+                    <div class="position-relative full shadow rounded overflow-hidden">
+                        <div class="position-absolute start-0 top-0 full rank"
+                            style="background-image: url('{{storage + post.cover}}')" >
+                            <div class="full opacity-75 bg-dark"></div>         
+                        </div>
+                        <div class="position-absolute start-0 bottom-0 p-3">
+                            <div class="my-2 visible" style="font-size:22px">
+                                <a href="javascript:void(0)"
+                                 class="btn text-uppercase mx-3 text-light"
+                                 style="background-color:{{post.category.bg}}">
+                                 {{post.category.name}}
+                                </a>
+                                <span class="text-white text-decoration-underline"> {{ post.created_at }} </span>
+                            </div>
+                            <div class="text-light">
+                                <a [routerLink]="'/blog/' + post.id + '/' + rewrite(post.title)">
+                                 {{ post.title }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

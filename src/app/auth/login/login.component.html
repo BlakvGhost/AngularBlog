@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-6 m-auto">
+            <h5 class="my-3 italic">
+                <span class="text-primary">/</span>
+                <span class="text-warning">/</span>
+                <span class="text-danger">/</span>
+                SE CONNECTER
+            </h5>
+            <form action="" (submit)="login(form.valid)" #form="ngForm">
+                <app-alert [success]="success" [data]="message"></app-alert>
+
+                <div class="form-group my-2">
+                    <label for="email_field" class="form-text">Email* : </label>
+                    <input type="email" name="email" id="email_field" placeholder="Enter Your Email"
+                        class="form-control form-control-lg visible" [(ngModel)]="data.email" required>
+                </div>
+                <div class="form-group my-2">
+                    <label for="pass_field" class="form-text">Mot de Passe* : </label>
+                    <input type="password" name="password" id="pass_field" placeholder="Enter Your Password"
+                        class="form-control form-control-lg visible" [(ngModel)]="data.password" required>
+                </div>
+                <div class="my-3 text-center">
+                    <button class="btn btn-success w-50" type="submit">Se Connecter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

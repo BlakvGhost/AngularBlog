@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-6 m-auto">
+            <h5 class="my-3 italic">
+                <span class="text-primary">/</span>
+                <span class="text-warning">/</span>
+                <span class="text-danger">/</span>
+                 CREER UN NOUVEAU COMPTE
+            </h5>
+            <form action="" (submit)="register(form.valid)" #form="ngForm">
+                <app-alert [success]="success" [data]="message"></app-alert>
+                <div class="form-group my-2">
+                    <label for="first_name" class="form-text">Nom* : </label>
+                    <input type="text" name="first_name" id="first_name" placeholder="Enter Your First Name"
+                        class="form-control form-control-lg visible text-capitalize"
+                        [(ngModel)]="data.first_name" required>
+                </div>
+                <div class="form-group my-2">
+                    <label for="last_name" class="form-text">Prenom* : </label>
+                    <input type="text" name="last_name" id="last_name" placeholder="Enter Your Last Name"
+                        class="form-control form-control-lg visible"
+                        [(ngModel)]="data.last_name" required>
+                </div>
+                <div class="form-group my-2">
+                    <label for="email_field" class="form-text">Email* : </label>
+                    <input type="email" name="email" id="email_field" placeholder="Enter Your Email"
+                        class="form-control form-control-lg visible" [(ngModel)]="data.email" required>
+                </div>
+                <div class="form-group my-2">
+                    <label for="pass_field" class="form-text">Mot de Passe* : </label>
+                    <input type="password" name="password" id="pass_field" placeholder="Enter Your Password"
+                        class="form-control form-control-lg visible" [(ngModel)]="data.password" required>
+                </div>
+                <div class="form-group my-2">
+                    <label for="conf_field" class="form-text">Confirmer Mot de Passe* : </label>
+                    <input type="password" name="confirm" id="conf_field" placeholder="Confirm Your Password"
+                        class="form-control form-control-lg visible" [(ngModel)]="data.confirm_password" required>
+                </div>
+                <div class="my-3 text-center">
+                    <button class="btn btn-success w-50" type="submit">S'inscrire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

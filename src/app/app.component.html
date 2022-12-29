@@ -1,0 +1,94 @@
+<div>
+  <header id="static-header" style="z-index: 6">
+    <nav class="navbar navbar-expand bg-dark navbar-dark justify-content-between px-5">
+      <div class="navbar-nav">
+        <a href="/" class="nav-link"><h3 class="m-0">Learning</h3></a>
+      </div>
+      <div class="navbar-nav">
+        <a routerLink="/home" class="nav-link">Home</a>
+        <a [routerLink]="['/blog']" routerLinkActive="router-link-active" class="nav-link">Blog</a>
+        <a [routerLink]="['/blog/publier']" routerLinkActive="router-link-active" class="nav-link">Publier</a>
+        <a [routerLink]="['/auth/connectez-vous']"
+         routerLinkActive="router-link-active"  
+         class="nav-link" *ngIf="!auth.isLogin()">Connexion
+        </a>
+        <a [routerLink]="['/auth/creer-un-compte']"
+         routerLinkActive="router-link-active"
+         class="nav-link" *ngIf="!auth.isLogin()">Creer un Compte
+        </a>
+        <a [routerLink]="['/auth/creer-un-compte']"
+         routerLinkActive="router-link-active"
+         class="nav-link" *ngIf="auth.isLogin()" (click)="auth.logout()">Logout
+        </a>
+      </div>
+      <div class="navbar-nav">
+        <form action="">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search key: ">
+            <button class="input-group-btn btn-light">Search</button>
+          </div>
+        </form>
+      </div>
+    </nav>
+</header>
+<main class="container overflow-hidden">
+  <div class="p-3 position-relative full">
+    <div class="card position-absolute top-0 start-0 full"
+     aria-hidden="true" style="z-index: 5;" id="loading">
+      <div class="card-body position-relative">
+        <div class="text-center">
+          <div class="spinner-grow m-1 text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow m-1 text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow m-1 text-success" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow m-1 text-danger" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow m-1 text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <h5 class="card-title placeholder-glow">
+          <span class="placeholder col-6"></span>
+        </h5>
+        <p class="card-text placeholder-glow">
+          <span class="placeholder col-7"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-6"></span>
+          <span class="placeholder col-8"></span>
+        </p>
+        <p class="card-text placeholder-glow">
+          <span class="placeholder col-7"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-6"></span>
+          <span class="placeholder col-8"></span>
+        </p>
+        <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+        <div class="text-center my-3">
+          <h5>Page is Loading....</h5>
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>
+<footer>
+  <nav class="navbar navbar-expand bg-dark navbar-dark justify-content-between px-5">
+    <div class="navbar-nav">
+      <span class="nav-link">&copy; 2021 - {{ date }} All Right Reserved</span>
+    </div>
+    <div class="navbar-nav">
+      <span class="nav-link">Developed by Kabirou Hassane For Learning Angular</span>
+    </div>
+  </nav>
+</footer>
+</div>

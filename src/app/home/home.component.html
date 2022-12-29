@@ -1,0 +1,56 @@
+<div id="b" class="slideshow w-100 overflow-hidden position-relative" style="height: 85vh;">
+    <div class="h-100">
+        <div class="carousel-control position-absolute start-0 text-white w-100" style="bottom: 10%;z-index: 5">
+            <div class="container-custom">
+                <div class="" style="width: 150px;">
+                    <div class="row row-cols-3 flex-nowrap w-100">
+                        <div class="fv-carousel-control-prev col align-self-center">
+                            <a role="button" class="btn">
+                                <i class="mdi mdi-arrow-left-thin mdi-light"></i>
+                            </a>
+                        </div>
+                        <div class="fv-carousel-numerous col d-flex flex-nowrap align-self-center">
+                            <span> {{ 1 }} </span>
+                            <span>/</span>
+                            <span>{{ 8 }}</span>
+                        </div>
+                        <div class="fv-carousel-control-next col align-self-center">
+                            <a role="button" class="btn">
+                                <i class="mdi mdi-arrow-right-thin mdi-light"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-inner h-100 w-100 home-slide owl-carousel d-flex">
+                <div class="carousel-item active h-100 w-100" *ngFor="let post of posts">
+                    <div class="position-absolute start-0 top-0 full rank"
+                    style="background-image: url('{{storage + post.cover}}')" >
+                        <div class="full opacity-75 bg-dark"></div>                
+                    </div>
+                    <div class="position-absolute start-0 text-white h-100 w-100" style="top: 16%;">
+                        <div class="container-custom">
+                            <div class="fv-slide-title">
+                                <div class="fv-slide-title-normal visible">
+                                    <h6><span class="dbslash">//</span> &nbsp; {{ post?.title }} </h6>
+                                </div>
+                                <div class="fv-slide-title-big visible">
+                                    <h1 class="text-uppercase fa-3x fw-bolder write"> {{ post?.category.name }} </h1>
+                                </div>
+                                <div class="fv-slide-title-normal visible">
+                                    <h5>{{ post?.content.slice(0, 100) }}</h5>
+                                </div>
+                                <div style="width: 150px;" class="mt-4">
+                                    <a [routerLink]="'/blog/' + post.id + '/' + rewrite(post.title)"
+                                        class="btn btn-custom w-100 text-white fw-bolder">
+                                        LIRE PLUS
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
