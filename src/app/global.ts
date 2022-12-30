@@ -2,7 +2,7 @@
 
 "use strict"
 
-export const BASE_URL: string = `http://futuravisionapi.test/`;
+export const BASE_URL: string = `https://futura-vision-api.000webhostapp.com/`;
 export const BASE_API_URL: string = `${BASE_URL}api/`;
 export const BASE_STORAGE_URL: string = `${BASE_URL}storage/`;
 export const AUTH_NAME: string = `authForLearningAngular`;
